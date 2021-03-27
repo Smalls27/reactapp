@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Card, CardImg, CardBody, CardText, Breadcrumb, BreadcrumbItem, 
-    Button, Modal, ModalHeader, ModalBody, Row, Col, Label } from "reactstrap";
+    Button, Modal, ModalHeader, ModalBody, Label } from "reactstrap";
 import { Control, LocalForm, Errors } from "react-redux-form";
 import { Link } from "react-router-dom";
 import { Loading } from "./LoadingComponent";
@@ -102,7 +102,7 @@ class CommentForm extends Component {
 function RenderCampsite({campsite}) {
     return (
         <div className="col-md-5 m-1">
-            <FadeTransform in transformProps={{ exitTransform: 'scale(0.5) translateY(-50%)' }}>
+            <FadeTransform in transformProps={{ exitTransform: 'scale(1) translateY(-100%)' }} duration={750}>
                 <Card>
                     <CardImg top src={baseUrl + campsite.image} alt={campsite.name} />
                     <CardBody>
@@ -119,7 +119,7 @@ function RenderComments({comments, postComment, campsiteId}) {
         return (
             <div className="col-md-5 m-1">
                 <h4>Comments</h4>
-                <Stagger in>
+                <Stagger delay={400} in>
                     {comments.map(comment => {
                         return (
                             <Fade in key={comment.id}>
